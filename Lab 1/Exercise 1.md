@@ -1,18 +1,22 @@
 import PyPDF2
 
-**Read the PDF file**
+## _Read the PDF file_
+
 with open('Business_Proposal.pdf', 'rb') as file:
 reader = PyPDF2.PdfReader(file)
 text = "\n".join(page.extract_text() for page in reader.pages if page.extract_text())
 
-**Print the extracted text**
+## _Print the extracted text_
+
 print("Extracted PDF Text:\n", text)
 
-**Store the extracted text in a file**
+## _Store the extracted text in a file_
+
 with open('business_proposal_all.txt', 'w', encoding='utf-8') as output:
 output.write(text)
 
-**Result**
+## _Result_
+
 Extracted PDF Text:
 Business Proposal  
 The Revolution is Coming  
