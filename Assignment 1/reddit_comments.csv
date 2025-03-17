@@ -1,0 +1,61 @@
+Comment ID,Author,Comment,Upvotes,Timestamp
+mi5iaaj,Ilya_Human,If you need something more than simplest CRUD logic — consider using separate backend service since Next.js will bind you to its limitations ,14,1742159064.0
+mi5ntpc,RuslanDevs,"I would say you don't need additional backend if it is still nodejs. Just run everything as an instance of NextJS with classic REST endpoints, and you can scale that as well.
+
+Architecture Backend - Backend for frontend (ie NextJs) - Frontend makes more sense if you have backend in another language ie Python, Java",5,1742160766.0
+mi5nlcf,Darkoplax,"Take a look at hono or fastify first, express is kinda on life support
+
+The only thing annoying about js backends is they dont provide auto docs openapi generation like fastapi or spring boot or .net do 
+
+
+Like you have to write so much boilerplate and types and thats just annoying",6,1742160696.0
+mi6dkqc,FancyADrink,"You don't have to choose, there is a dark art that will allow you to use both",1,1742169188.0
+mi7cqen,brightside100,"it depends on the size of your product an it's growth prediction for the upcoming 6-12 months(how much code you'll write, how many engineers will work on it, are you writing and expecting to rewrite anyway or not etc... raise more questions yourself)
+
+than, i'd recommand you to move forward base on your needs at whatever points you need. but the bare minimum even if you don't scale up your nextjs api backend now is to expiriment or play around with something existing like expressjs which is valid (but i am not sure is a good point) or nestjs. which IMO a more valid direction - good luck",1,1742182287.0
+mi8ndsc,Abkenn,"Option 1: React 19 server actions with ORM/DB manipulation directly
+
+Option 2: Server Actions with API routes if the team wants to have it as reusable API
+
+Option 3: Server Actions with Hono API (functional programming, very minimalist and simple) if you want more freedom on api deployment or if you need to run the api server persistently, e.g. websockets in Next API routes won't work in Vercel and you need to use a 3rd party provider like Ably (very easy to use) vs. Hono being persistent you can do websockets with ws adapter
+
+
+I love option 1 currently and I mix it with option 2 - API route for Ably channels for realtime bell notifications, chats, etc.",1,1742209359.0
+mi5wv3i,yksvaan,"Well I don't know why compare to Express specifically. Any established backend framework in a dozen languages gets the job done. Choose what best fits the use case and specific requirements.
+
+
+I think nextjs has some architectural flaws in terms of backend functionality which leads to ineffective and unnecessarily complicated server code. ",1,1742163621.0
+mi7z8kd,GammaGargoyle,"Use fastify. Express is basically dead. In the js world it’s all about lightweight, simple abstraction layers. It will give you huge performance benefits.",1,1742194178.0
+mi70chb,Select_Day7747,I switched to golang api and started microservices in it just for fun. Mongodb performed better for me in golang. Plus i got proper types and less dependencies with libraries.,0,1742177351.0
+mi5ild1,friedlich_krieger,What sort of limitations?,4,1742159158.0
+mi5t4zh,Ok_Metal_6310,"Thank you, what about server queue management, realtime/websockets will nextjs work well for this?",1,1742162437.0
+mi612xz,TraderT3,Express is on life support? What makes you say that?,9,1742164981.0
+mi5s3u4,Ok_Metal_6310,"I'll check them out, thanks",2,1742162112.0
+mi5tt4o,Ok_Metal_6310,"Can I not use Swagger for auto docs, yes it may need a little more setup but it should still work right? (Never set up Swagger before but used it in .net apps)",1,1742162649.0
+mi6h3l5,banterousbanterjee,"if OP is using Bun, I find Elysia is a great choice too!
+
+Edit: It also has an automated swagger plugin for generating docs.",1,1742170404.0
+mi5izpf,Ilya_Human,"Scalability, observability, metrics, clustering, memory management, multiple processes etc. ",5,1742159280.0
+mi5w0t8,RuslanDevs,"Websockets yes if you self host. But ExpressJS does not help with queue either and I don't know what will be good except AWS SQS + Lambda
+
+I am trying to build my own",2,1742163352.0
+mi71uxt,opaz,People that follow frontend influencers,5,1742177922.0
+mi5x2g6,Darkoplax,"Yes it works perfectly fine for Hono for example
+
+
+But my issue always been why do I have to write so much more boilerplate just to get docs when other languages have them out of the box ...
+
+
+that's just annoying especially if you work in a group or different back/front teams and need the documentation but if im alone i wont even bother doing the docs when using a js backend framework",2,1742163687.0
+mi5oyfp,pm_me_ur_doggo__,"I don’t know where you got this list. These are almost all things that are very well supported by nextjs, or are design considerations that are met by next in some other way.
+
+Where nextjs falls down is realtime/websockets, and background / long running tasks.",5,1742161113.0
+mi5kcwc,Ok_Metal_6310,"Valid points, could you recommend a couple places to host the separate backend service at all?",2,1742159701.0
+mi5y9uf,Ok_Metal_6310,"That is true, I'll have a look into AWS SQS, sorry your building your own, fair play, how's that going?",1,1742164073.0
+mi5y0sp,Ok_Metal_6310,"I'll definitely check out Hono, having to do all the boilerplate stuff is annoying 
+
+Thank you",1,1742163992.0
+mi5wbjd,Ilya_Human,Got it from own exp,2,1742163447.0
+mi5n3c4,Bpofficial,starting out you could just host something on digital ocean or LightSail. Scaling upwards it’s easy enough to just move those to containers and deploy on ECS or use Fargate. However scaling is a challenge of its own and I wouldn’t be factoring it in too much at this point. Just set yourself up to containerize is my 2c,2,1742160542.0
+mi607c7,RuslanDevs,"I want to have a standalone solution for my project DollarDeploy, the closest is BullMq but there needs to be a way to run executions per message, it is quite complicated",1,1742164695.0
+mi5ry6x,Ok_Metal_6310,"Thank you, this is very helpful :)",1,1742162062.0
